@@ -1,0 +1,86 @@
+@use "sass:math";
+@use '@strategies/tokens/animation';
+@use '@strategies/tokens/layout';
+
+
+.MapSequence {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg, #{rgba(#ffffff, 0)}, #{rgba(#BFCED6, 1)});
+    .maps {
+        display: flex;
+        align-items: center;
+        top: 0rem;
+        left: 5%;
+        transform: translateZ(0);
+
+        height: 100%;
+        width: 90%;
+
+        transition: left animation.$speed, width animation.$speed, top animation.$speed;
+
+        @include respond-to(tablet) {
+            left: 28%;
+            width: 70%;
+        }
+
+        
+        @include respond-to(desktop) {
+            left: 36%;
+            width: 70%;
+        }
+    }
+
+    .map {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-45%) translateZ(0);
+
+        width: 100%;
+        @include respond-to(tablet) {
+            left: 0;
+            width: 100%;
+        }
+        @include respond-to(desktop) {
+            right: 0;
+            width: 70%;
+
+            &:nth-child(3){
+                width: 50%;
+            }
+        }
+        margin: auto;
+
+        opacity: 0;
+        transition: opacity animation.$speed * 2,;
+        pointer-events: none;
+
+        text-align: center;
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        img {
+            width: 100%;
+            border-radius: layout.$border-radius--large;
+            overflow: hidden;
+        }
+
+        a {
+            position: absolute;
+            bottom: -(layout.$padding--large);
+            left: 0;
+            right: 0;
+            width: max-content;
+            margin: auto;
+
+        }
+    }
+
+}

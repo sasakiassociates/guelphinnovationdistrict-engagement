@@ -1,0 +1,57 @@
+{
+  "name": "henshu-project-site",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@strategies/firestore-input": "^1.0.0",
+    "@strategies/henshu": "^1.1.6",
+    "@strategies/henshu-app": "1.6.0-beta",
+    "@strategies/react-anchors": "^1.5.6",
+    "@strategies/react-drag-drop": "^1.2.3",
+    "@strategies/react-mobilized": "^1.2.3",
+    "@strategies/tokens": "^1.5.0",
+    "@strategies/ui": "^1.3.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "firebase": "^9.10.0",
+    "mobx-react": "^7.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0",
+    "buffer": "^6.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "sass": "^1.55.0"
+  }
+}

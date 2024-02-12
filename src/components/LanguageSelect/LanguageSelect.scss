@@ -1,0 +1,31 @@
+@use '~@strategies/tokens/animation';
+@use '~@strategies/tokens/color';
+@use '~@strategies/tokens/layout';
+
+$speed: .2s;
+
+.LanguageSelect {
+    display: inline-block;
+
+    padding: $dims_padding-small * .66 $dims_padding-small * 1.33;
+
+    border: 2px solid rgba($color_brand--secondary, .4);
+    border-radius: $box_radius-large;
+    transition: border-color animation.$speed, font-size $speed, padding $speed;
+
+    &:hover {
+        border-color: rgba($color_brand--secondary, 1);
+    }
+
+    select {
+        font-size: inherit;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color animation.$speed;
+    }
+
+    option {
+        color: color.$black;
+    }
+}

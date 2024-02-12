@@ -1,0 +1,16 @@
+.FadeUp {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: transform 1s, opacity .9s;
+
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    .Anchor {
+        position: absolute;
+        top: -10vh;
+    }
+}

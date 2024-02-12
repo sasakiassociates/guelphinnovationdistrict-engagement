@@ -1,0 +1,194 @@
+@use '~@strategies/tokens/animation';
+@use '~@strategies/tokens/color';
+@use '~@strategies/tokens/font';
+@use '~@strategies/tokens/layout';
+
+
+.App {
+    .Anchor {
+        position: absolute;
+        top: 0px;
+
+        @include respond-to(desktop) {
+            top: -120px;
+
+            &#welcome {
+                top: 0px;
+            }
+        }
+    }
+
+    .ReactMobilized {
+        $scale: .75;
+
+
+        
+        &.mobile {
+            &.hamburgered {
+                .ReactMobilized__Header {
+                    box-shadow: none;
+                }
+
+                .ReactMobilized__App:after {
+                    height: calc(100vh - 90px);
+                    box-shadow: inset layout.$box_shadow, 0 0 0 1000px $color_brand;
+                }
+            }
+
+            .ReactMobilized__AnchorList {
+                text-align: center;
+
+                li {
+                    width: max-content;
+                    margin: auto;
+                    margin-top: 1rem;
+                }
+            }
+        }
+
+        &__mobile-anchors {
+            background: $color_brand;
+            z-index: 9998;
+        }
+        &.mobile, &__Header.shrink {
+
+            .ReactMobilized__Header {
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                box-shadow: $box_shadow;
+                // background: color.$white;
+                // background: linear-gradient(180deg, #ffffff 0%, rgba(234, 236, 255, 0) 0%);
+                &-content {
+                    padding: $dims_padding-small $dims_padding-medium;
+                }
+
+                &-logo {
+                    height: $font_size-larger;
+
+                    h1 {
+                        font-size: font.$size--large;
+                    }
+                }
+            }
+        }
+
+        &:not(.mobile) .ReactMobilized__Header.shrink {
+            // box-shadow: $box_shadow;
+            // background: linear-gradient(180deg, #ffffff 100%, #ffffff 100%);
+            .ReactMobilized__AnchorList a {
+                font-size: $font_size-small * $scale;
+                padding: (($dims_padding-small * .66) * $scale) $dims_padding-small;
+            }
+        }
+
+        &__banner {
+            display: flex;
+            background: $color_brand;
+            display: none;
+
+            a {
+                color: $color_black !important;
+                font-weight: 500;
+                font-size: $font_size-small;
+                font-family: $font_family-primary;
+                line-height: 1.5em;
+            }
+
+            button {
+                display: none !important;
+            }
+        }
+
+        &__Header {
+            background: $color_brand; 
+            box-shadow: $box_shadow;
+            // background: linear-gradient(180deg, #ffffff 0%, rgba(234, 236, 255, 0) 100%);
+            &-content {
+                align-items: center;
+                padding: $dims_padding-medium / 2 $dims_padding-medium;
+                transition: padding animation.$speed;
+            }
+
+            &-logo {
+                display: flex;
+                align-items: center;
+
+                height: $font_size-largest;
+                transition: height animation.$speed;
+
+                img {
+                    height: 100%;
+                }
+
+                h1 {
+                    flex: 1 0;
+
+                    max-width: 10em;
+                    margin: auto layout.$padding;
+
+                    color: color.$white;
+                    font-weight: 400;
+                    font-size: font.$size--xlarge;
+                    transition: font-size animation.$speed;
+                }
+            }
+        }
+
+        &__AnchorList {
+            ul {
+                margin: 0;
+            }
+
+            .anchor-item {
+                border: 1px solid transparent;
+                border-radius: $box_radius-large;
+                transition: border-color .5s;
+                background-color: $color-brand-action;
+                &:not(.active):hover {
+                    border-color: rgba($color-brand-action, .4);
+                }
+
+                &.active {
+                    border-color: $color-brand;
+                    background-color: $color-brand-action;
+                    a {
+                        color: $color-brand;
+                    }
+                }
+
+                + .anchor-item {
+                    margin-left: 1rem;
+                }
+
+
+                &:not(:last-of-type) {
+                    display: none;
+                }
+            }
+
+            a {
+                display: block;
+                padding: $dims_padding-small * .66 $dims_padding-small * 1.33;
+
+                color:  $color-brand;
+                font-size: $font_size-small;
+                
+                transition: font-size animation.$speed, padding animation.$speed;
+            }
+        }
+
+        &__hamburger {
+            right: $dims_padding-medium;
+            background: none;
+
+            &.active {
+                width: 3.125rem;
+                height: 3.125rem;
+            }
+
+            &:before, &:after, *:before, *:after {
+                background: $color_brand-action;
+            }
+        }
+    }
+}

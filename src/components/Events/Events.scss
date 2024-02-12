@@ -1,0 +1,55 @@
+@use '~@strategies/tokens/color';
+
+
+.Events {
+
+    ul {
+        display: grid;
+        gap: $dims_padding-medium;
+        grid-template-columns: 1fr;
+
+        @include respond-to(tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    li {
+        padding: $dims_padding-small * 2;
+
+        text-align: center;
+
+        background: $color_bg-light-grey;
+        border-radius: $box_radius-medium;
+    }
+
+    h4 {
+        margin: 0;
+        margin-bottom: $dims_padding-small * 2;
+
+        font-size: 1.4em;
+        font-weight: 700;
+    }
+
+    strong, span {
+        display: block;
+
+        color: $color_brand;
+        font-size: $font_size-large;
+    }
+
+    strong {
+        font-weight: 900;
+    }
+
+    span {
+        font-weight: 700;
+        margin: $dims_padding-small / 2 0;
+    }
+
+    p {
+        margin: $dims_padding-small * 2 0 0;
+
+        font-size: $font_size-small !important;
+    }
+
+}

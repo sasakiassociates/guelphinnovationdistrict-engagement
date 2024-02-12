@@ -1,0 +1,141 @@
+.ContactForm {
+    form {
+        font-size: $font_size-small;
+        font-weight: 500;
+
+        opacity: 1;
+        transition: opacity .2s;
+
+        &.disabled {
+            pointer-events: none;
+
+            opacity: .6;
+            transition: opacity .2s;
+        }
+    }
+
+    textarea {
+        font-size: $font_size-small;
+        font-family: $font_family-primary;
+        font-weight: 600;
+        height: 10em;
+        resize: none;
+        overflow-y: auto;
+    }
+
+    label {
+        display: block;
+        padding-left: $dims_padding-small * 2;
+        margin-bottom: $dims_padding-small;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        margin-bottom: $dims_padding-small;
+        font-family: $font_family-primary !important;
+        font-size: $font_size-small;
+        font-weight: 600;
+        outline: none;
+        border-radius: $box_radius-large;
+        padding: $dims_padding-small / 2 $dims_padding-small * 2;
+        flex: 0 1 auto;
+        border: 2px solid $color_font-dark;
+        transition: border-color .2s;
+
+        &:focus, &:active {
+            border-color: $color_brand;
+        }
+    }
+ 
+
+    textarea {
+        font-family: $font_family-primary;
+        border-radius: $box_radius-medium;
+    }
+
+    .SelectInput {
+        width: 100%;
+        border-radius: 100px;
+    }
+
+    .SelectInput {
+        $size: 25px;
+
+        > * {
+            cursor: pointer;
+        }
+
+        &:after {
+            content: url(../../assets/chevron.svg);
+            height: $size;
+            width: $size;
+            display: block;
+            position: absolute;
+            right: $dims_padding-small * 2;
+            top: calc(60% - #{$size});
+            transform: rotate(90deg) translateY(-50%);
+            transition: top .15s;
+            pointer-events: none;
+
+            @include respond-to(desktop) {
+                top: calc(60% - #{$size});
+                transform: rotate(90deg);
+            }
+        }
+
+        &:hover:after {
+            top: calc(65% - #{$size});
+            transition: top .15s;
+
+            @include respond-to(desktop) {
+                top: calc(65% - #{$size});
+            }
+        }
+    }
+
+
+
+    .disclaimer {
+
+        font-size: font.$size--small;
+        font-weight: 600;
+
+
+    }
+    select {
+        appearance: none;
+    }
+
+    option:disabled {
+        color: grey;
+    }
+
+    button {
+        float: left;
+
+        margin-top: $dims_padding-small;
+        padding: $dims_padding-small / 1.5 $dims_padding-small $dims_padding-small / 1.5 $dims_padding-small;
+
+        color: $color_brand;
+        font-family: $font_family-primary;
+        font-size: $font_size-small;
+        font-weight: 400;
+
+        background: rgba($color_brand-action, 1);
+        border: 1px solid $color_brand-action;
+        border-radius: $box_radius-large;
+        cursor: pointer;
+        transition: background .15s;
+
+        &:hover {
+            background: rgba($color_brand, 1);
+            color: rgba($color_brand-action, 1);
+           
+        }
+
+        &:after {
+            margin-left: 10px !important;
+        }
+    }
+
+}

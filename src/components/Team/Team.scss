@@ -1,0 +1,299 @@
+@use '@strategies/tokens/animation';
+
+@use '@strategies/tokens/color';
+@use '@strategies/tokens/font';
+@use '@strategies/tokens/layout';
+
+
+.Team {
+    &.NavSection {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        
+    }
+
+
+
+
+    p {
+        &:last-of-type {
+            padding-bottom: layout.$padding--large * 2;
+        }
+    }
+
+
+
+    &-teams {
+
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center !important;
+
+        @include respond-to(desktop) {
+            min-width: 90vw;
+            flex-direction: row;
+        }
+        @include respond-to(tablet) {
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            min-width: min-content;
+        }
+        min-width: min-content;
+        // flex-wrap: wrap;
+
+        gap: 30px;
+
+        &--team {
+
+
+            p {
+                &:last-of-type {
+                    padding-bottom: layout.$padding;
+                }
+            }
+
+            // &.active {
+
+            //     @include respond-to(desktop) {
+            //         position: relative;
+            //         top: 0%;
+            //         left: 0%;
+            //         width: 100%;
+            //         height: fit-content;
+            //         z-index: 559999999;
+            //         max-height: 100%;
+
+
+            //         .Henshu__EditableRichText {
+
+            //             font-size: font.$size--regular !important;
+            //             // text-overflow: ellipsis;
+            //             // // white-space: nowrap;
+            //             // overflow: hidden;
+            //             overflow: hidden;
+            //             display: -webkit-box;
+            //             -webkit-line-clamp: 10;
+            //             /* number of lines to show */
+            //             line-clamp: 10;
+            //             -webkit-box-orient: vertical;
+            //         }
+
+            //         h3 {
+            //             font-weight: 700;
+            //             font-size: font.$size--regular !important;
+            //             line-height: font.$line-height--large;
+            //         }
+
+            //         h5 {
+            //             font-size: font.$size--regular !important;
+            //             font-weight: 600;
+            //         }
+
+            //         a {
+            //             font-weight: 600;
+            //             color: #263B80;
+            //         }
+            //     }
+
+            //     @include respond-to(tablet) {
+            //         position: relative;
+            //         top: 0%;
+            //         left: 0%;
+            //         width: 100%;
+            //         height: 100%;
+            //         z-index: 559999999;
+            //         max-height: 100%;
+
+
+            //         .Henshu__EditableRichText {
+
+            //             font-size: font.$size--regular !important;
+            //             // text-overflow: ellipsis;
+            //             // // white-space: nowrap;
+            //             // overflow: hidden;
+            //             overflow: hidden;
+            //             display: -webkit-box;
+            //             -webkit-line-clamp: 10;
+            //             /* number of lines to show */
+            //             line-clamp: 10;
+            //             -webkit-box-orient: vertical;
+            //         }
+            //     }
+
+            //     .Henshu__EditableRichText {
+            //         font-size: font.$size--regular !important;
+            //         text-overflow: unset;
+            //         white-space: normal;
+            //         overflow: hidden;
+            //         display: -webkit-box;
+            //         -webkit-line-clamp: unset;
+            //         /* number of lines to show */
+            //         line-clamp: unset;
+            //         -webkit-box-orient: unset;
+
+            //         h3 {
+            //             font-weight: 700;
+            //             font-size: font.$size--regular !important;
+            //             line-height: font.$line-height--large;
+            //         }
+
+            //         h5 {
+            //             font-size: font.$size--regular !important;
+            //             font-weight: 600;
+            //         }
+
+            //         a {
+            //             font-weight: 600;
+            //             color: #263B80;
+            //         }
+            //         p {
+            //             font-size: font.$size--regular !important;
+            //             line-height: font.$line-height--large;
+            //         }
+            //     }
+
+            //     h3 {
+            //         line-height: font.$line-height--large;
+            //         font-size: font.$size--regular !important;
+            //     }
+
+            //     max-height: fit-content;
+            // }
+
+            // flex: 1 1 auto;
+
+            @include respond-to(desktop) {
+                flex: auto;
+            }
+
+
+            @include respond-to(tablet) {
+                flex: auto;
+            }
+
+            flex: 1 1 100%;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            background-color: color.$white;
+
+            padding: layout.$padding--large;
+            padding-left: 0;
+
+            @include respond-to(tablet) {
+                padding: layout.$padding--large;
+            }
+
+            @include respond-to(desktop) {
+                padding: layout.$padding--large;
+            }
+            border-radius: layout.$border-radius--large +layout.$border-radius--small;
+
+
+
+            // max-height: 400px;
+
+            .Henshu__EditableRichText {
+                display: none;
+
+                @include respond-to(desktop) { 
+
+                    display: -webkit-box;
+                }
+
+
+                @include respond-to(tablet) { 
+
+                    display: -webkit-box;
+                }
+
+                font-size: font.$size--regular !important;
+                // text-overflow: ellipsis;
+                // // white-space: nowrap;
+                // overflow: hidden;
+                overflow: hidden;
+                
+                -webkit-line-clamp: 5;
+                /* number of lines to show */
+                line-clamp: 5;
+                -webkit-box-orient: vertical;
+                p {
+                    font-size: font.$size--regular;
+                }
+            }
+
+
+
+            // @include respond-to(tablet) {
+            //     flex: 0.25 0.25 22%;
+            // }
+
+            // @include respond-to(desktop) {
+            //     flex: 0.25 0.25 22%;
+            // }
+
+            // flex: 1 01 100%;
+            // display: flex;
+            // gap: 10px;
+            // flex-direction: column;
+            // align-items: center;
+            // background-color: color.$white;
+
+            // padding: layout.$padding--large;
+
+            // border-radius: layout.$border-radius--large +layout.$border-radius--small;
+
+
+
+            img {
+                // flex: 0 0;
+                // width: 154px; //framer
+                height: 40px; //framer
+            }
+
+            .button {
+                color: color.$white;
+                box-sizing: border-box;
+                flex-shrink: 0;
+                width: min-content;
+                /* 112px */
+                height: 40px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 15px 15px 15px 15px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+                background-color: var(--Brand_Dark_Text, #263b80);
+                overflow: hidden;
+                position: relative;
+                align-content: center;
+                flex-wrap: nowrap;
+                gap: 10;
+                border-radius: 100px;
+                border: 2px solid rgba(255, 255, 255, 0);
+                width: fit-content;
+
+
+            }
+
+            .button:hover {
+                cursor: pointer;
+            }
+
+
+            .IconButton {
+                position: absolute;
+                float: right;
+                top: 1%;
+                right: 1%;
+            }
+        }
+    }
+
+
+}

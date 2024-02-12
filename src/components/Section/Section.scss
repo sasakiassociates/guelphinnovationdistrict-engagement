@@ -1,0 +1,76 @@
+@use '@strategies/tokens/color';
+@use '@strategies/tokens/font';
+@use '@strategies/tokens/layout';
+
+
+.Section {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    padding: layout.$padding * 4 0;
+
+    @include respond-to(tablet) {
+        min-height: 80vh;
+        padding: layout.$padding * 6 0;
+    }
+
+    hgroup {
+        flex: 0 0 auto;
+    }
+
+    main {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        align-content: center;
+        z-index: 25;
+
+        width: 100%;
+
+        @include respond-to(tablet) {
+            width: 40%;
+        }
+
+        > div {
+            padding: layout.$padding--large;
+
+            background: unset;
+            border-radius: layout.$border-radius--large;
+            // box-shadow: 0 0 3px 0 rgba(color.$black, .4);
+            border-width: 0;
+        }
+
+        h4 {
+            margin-top: 0;
+            font-size: font.$size--xsmall * 2;
+            font-weight: 600;
+        }
+
+        p {
+            &:first-of-type {
+                margin-top: 0;
+            }
+            font-size: font.$size--large;
+            font-weight: font.$weight--regular;
+        }
+
+        ul {
+            padding-left: 1.2em;
+            margin-bottom: 0;
+        }
+    }
+
+    > .Anchor {
+        position: absolute;
+        top: 20%;
+    }
+
+    .Prompt {
+        margin-top: layout.$padding--large * 2;
+
+        @include respond-to(tablet) {
+            margin-top: layout.$padding--large * 4;
+        }
+    }
+}

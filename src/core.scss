@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'Chronica Pro';
+    src: url('./assets/fonts/Mostardesign\ -\ Chronica\ Pro\ Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronica Pro';
+    src: url('./assets/fonts/Mostardesign\ -\ Chronica\ Pro\ Book.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronica Pro';
+    src: url('./assets/fonts/Mostardesign\ -\ Chronica\ Pro\ Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronica Pro';
+    src: url('./assets/fonts/Mostardesign\ -\ Chronica\ Pro\ Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+ * Variables
+ */
+
+$color_brand: #002A3A;
+$color-brand-action: #FFCB05;
+$color_brand--secondary: #EAECFF;
+
+
+$color_bg-light-green: #EAECFF;
+$color_bg-light-grey: #EAEAEA;
+$color_bg-medium: #E5E5FF;
+$color_bg-light: #FFF;
+
+$color_font-dark: #002A3A;
+$color_font-light: #FFF;
+
+$color_black: #000;
+$color_dark-blue: #58B4E5;
+$color_blue: #3BBAED;
+$color_light-blue: #98CAED;
+$color_dark-green: #7AC141;
+$color_green: #6BC2B8;
+$color_light-green: #ABD788;
+$color-dark-orange: #F58320;
+$color_orange: #FFB000;
+$color_light-orange: #F8A45E;
+$color_dark-pink: #A9188D;
+$color_light-pink: #C76CAF;
+$color_yellow: #FEF5A0;
+$color_dark-red: #F27D77;
+$color_light-red: #FFD8D6;
+$color-brand-hover-action: #56587B;
+
+$font_family-primary: 'Chronica Pro', sans-serif;
+$font_family-secondary: 'Roboto', serif;
+
+$font_size--base: 16px;
+$font_size-small: 1rem;       // 16px
+$font_size-medium: 1.25rem;   // 20px
+$font_size-large: 1.5rem;     // 24px
+$font_size-larger:  2.625rem; // 42px
+$font_size-largest: 5rem;     // 80px
+
+$box_radius-small: 5px;
+$box_radius-medium: 15px;
+$box_radius-large: 6.25rem; // 100px
+$box_shadow: 0 0 5px rgba($color_font-dark, .4);
+
+$dims_padding-small: .9375rem;  // 15px
+$dims_padding-medium: 3.125rem; // 50px
+$dims_padding-large: 6.25rem;   // 100px
+
+
+/*
+ * Mixins + Extends
+ */
+
+$mobileBreak: 885px;
+$tabletBreak: 1085px;
+$largeBreak: 1650px;
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media all and (max-width: $smallBreak) { @content; }
+  }
+  @else if $media == tablet {
+    @media all and (min-width: $mobileBreak + 1px) { @content; }
+  }
+  @else if $media == desktop {
+    @media all and (min-width: $tabletBreak + 1px) { @content; }
+  }
+  @else if $media == large-desktop {
+    @media all and (min-width: $largeBreak) { @content; }
+  }
+}
+
+._vertical-align {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/*
+ * Globals
+ */
+
+html, body {
+  position: relative;
+  margin: 0;
+  color: $color_font-dark;
+  font-family: $font_family-primary;
+  font-size: $font_size--base * .85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  @include respond-to(desktop) {
+      font-size: $font_size--base;
+  }
+}
+
+*, *:before, *:after {
+    position: relative;
+    box-sizing: inherit;
+    line-height: 1.2em;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*
+ * Animations
+ */
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    85% {
+        transform: scale(.8);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes dropIn {
+    0% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes swoopIn {
+    0% {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes swipeIn {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blipIn {
+    0% {
+        box-shadow: 0 0 0 0 rgba($color_blue, .25);
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba($color_blue, .25);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba($color_blue, .25);
+    }
+    85% {
+        box-shadow: 0 0 0 12px rgba($color_blue, .25);
+    }
+    100% {
+        box-shadow: 0 0 0 15px rgba($color_blue, .25);
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        top: 0;
+    }
+    75% {
+        top: 0px;
+    }
+    80% {
+        top: -5px;
+    }
+    85% {
+        top: 0px;
+    }
+    90% {
+        top: 0px;
+    }
+    95% {
+        top: -5px;
+    }
+    100% {
+        top: 0;
+    }
+}
+

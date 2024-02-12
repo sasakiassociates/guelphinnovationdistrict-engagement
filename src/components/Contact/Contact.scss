@@ -1,0 +1,166 @@
+
+@use 'sass:list';
+@use 'sass:math';
+@use '~@strategies/tokens/animation';
+@use '~@strategies/tokens/color';
+@use '~@strategies/tokens/font';
+@use '~@strategies/tokens/layout';
+.Contact {
+
+    .row {
+        display: flex;
+        flex-direction: column;
+
+        margin: 0;
+        padding: 0; 
+        
+        h3 {
+            padding: 0;
+        }
+
+        @include respond-to(tablet) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $dims_padding-small;
+        }
+
+        .links {
+            // margin: $dims_padding-small 0;
+            // margin-right: auto;
+            
+            strong {
+                display: inline-block;
+                margin-top: layout.$padding;
+                font-size: font.$size--large;
+                font-weight: 600;
+            }
+
+            em {
+                display: inline-block;
+                margin-top: .3em;
+                font-size: font.$size--large;
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            p {
+                font-size: font.$size--xsmall * 2;
+                    &:last-of-type {
+                        padding-bottom: layout.$padding--large * 2;
+                    }
+                
+            }
+        }
+        .button {
+            display: block;
+
+            width: max-content;
+            margin:  0;
+            margin-right: auto;
+            padding: $dims_padding-small $dims_padding-small * 2;
+
+            color: $color_font-dark;
+            font-size: $font_size-medium;
+
+            background: $color_brand-action;
+            border-radius: $box_radius-large;
+            transition: background .2s;
+            
+            &:hover {
+                background: darken($color_brand, 1);
+            }
+
+            &:last-of-type {
+                margin-bottom: $dims_padding-medium;
+            }
+        }
+    }
+
+    .ContactForm {
+        margin-top: $dims_padding-medium;
+
+        @include respond-to(tablet) {
+            margin-top: 0;
+        }
+    }
+
+    .engagement-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        height: 100%;
+
+        background: url(../../assets/web_Community-Engagement_Website-Images_2.png);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: $box_radius-medium;
+        overflow: hidden;
+        // box-shadow: $box_shadow;
+
+        width: 100%;
+        margin-top: $dims_padding-large * 1.5;
+
+        @include respond-to(tablet) {
+            margin-top: 0;
+        }
+
+        @include respond-to(desktop) {
+            width: auto;
+            height: 100%;
+            padding: 2rem;
+        }
+
+         > * {
+             z-index: 1;
+         }
+
+        .engagement-blurb {
+            max-width: 20em;
+            color: $color_black;
+            padding: $dims_padding-small * 2;
+
+            background: color.$white;
+            border-radius: $box_radius-medium;
+            border: 2px solid $color_black;
+
+            &:after {
+                border-top-color: #e5e5ff;
+                border-left-color: #e5e5ff;
+            }
+
+            h4 {
+                margin: 0;
+                margin-bottom: $dims_padding-small;
+
+                font-size: $font_size-medium;
+                font-weight: 700;
+            }
+
+            p {
+                margin: 0;
+                font-family: $font_family-secondary;
+                font-size: $font_size-small;
+            }
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 2rem;
+
+            color: $color_font-light;
+
+            background: $color_brand--secondary;
+            border-radius: $box_radius-large;
+            transition: background .2s;
+            padding: $dims_padding-small $dims_padding-small * 2;
+
+            &:hover {
+                background: darken($color_brand--secondary, 5);
+                transition: background .2s;
+            }
+        }
+    }
+
+}
